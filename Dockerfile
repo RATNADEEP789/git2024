@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Update package lists and install nginx
-RUN apt-get update -y && apt-get install -y apache2
+RUN apt-get update -y && apt-get install -y nginx
 
 # Remove existing files in the nginx document root
 RUN rm -rf /var/www/html/*
