@@ -6,15 +6,15 @@ RUN apt-get update -y && apt-get install -y nginx
 # Remove existing files in the nginx document root
 RUN rm -rf /var/www/html/*
 
-# Copy application files to the nginx document root
-COPY ["ABOUT THIS TEMPLATE.txt", "contact.html", "faq.html", "images", "js", "products.html", "sign-up.html", "about.html",
-      "sign-in.html","css", "fonts", "index.html", "product-detail.html", "/var/www/html/"]
+# Copy all files to the nginx document root
+COPY about.txt about.html contact.html faq.html sign-up.html products.html \
+     sign-in.html product-detail.html index.html /var/www/html/
 
-# Copy nginx configuration file to the appropriate location
-#COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Create a volume for persistent storage
-VOLUME /var/www/html
+# Copy directories to the nginx document root
+COPY images /var/www/html/images
+COPY js /var/www/html/js
+COPY css /var/www/html/css
+COPY fonts /var/www/html/fonts
 
 # Expose port 80 for web traffic
 EXPOSE 80
