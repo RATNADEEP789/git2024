@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+  namespace: lenka   # Specify your namespace here
+spec:
+  type: NodePort
+  selector:
+    env: prod        # Match the Pod's label here
+  ports:
+    - port: 80            # The Service port
+      targetPort: 80      # Pod's application port
+      nodePort: 32000     # NodePort for external access

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test1
+  namespace: lenka
+  labels:
+    env: prod
+spec:
+  nodeSelector:
+    node: wn1
+  containers:
+    - name: c1
+      image: thala12345/dockertask:nginx
+      ports:
+        - containerPort: 80
