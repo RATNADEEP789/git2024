@@ -3,13 +3,18 @@ kind: Pod
 metadata:
   name: test1
   namespace: lenka
-  labels:
-    env: prod
 spec:
-  nodeSelector:
-    node: wn1
   containers:
     - name: c1
       image: thala12345/dockertask:lenka
       ports:
         - containerPort: 80
+      volumeMounts:
+        - name: html-volume
+          mountPath: /var/www/html
+  volumes:
+    - name: html-volume
+      hostPath:
+        path: /home/ec2-user/file1
+        type: DirectoryOrCreate
+
