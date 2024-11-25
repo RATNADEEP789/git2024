@@ -10,6 +10,6 @@ spec:
     node: wn1
   containers:
     - name: c1
-      image: thala12345/dockertask:nginx
+      image: thala12345/dockertask:lenka
       ports:
         - containerPort: 80
